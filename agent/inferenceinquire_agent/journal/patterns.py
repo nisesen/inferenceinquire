@@ -27,6 +27,10 @@ RE_DRAFT = re.compile(
 RE_GRAPHS = re.compile(
     r"slot print_timing: id\s+(\d+) \| task\s+(-?\d+) \|\s*graphs reused\s*=\s*(\d+)"
 )
+# llama.cpp v0.7.0 (b11669) and later: graph reallocations, same size / changed size
+RE_GRAPH_REALLOCS = re.compile(
+    r"slot print_timing: id\s+(\d+) \| task\s+(-?\d+) \|\s*graph reallocs\s*=\s*(\d+)\s*/\s*(\d+)"
+)
 RE_LAUNCH = re.compile(
     r"slot launch_slot_: id\s+(\d+) \| task\s+(-?\d+) \| processing task, is_child = (\d+)"
 )
@@ -35,7 +39,8 @@ RE_RELEASE = re.compile(
     r"n_tokens = (\d+), truncated = (\d+)"
 )
 RE_PICK_LRU = re.compile(
-    r"slot get_availabl: id\s+(\d+) \|.*selected slot by LRU, t_last = (-?\d+)"
+    # llama.cpp v0.7.0 (b11669) added "n_tokens = N, " before t_last
+    r"slot get_availabl: id\s+(\d+) \|.*selected slot by LRU, (?:n_tokens = \d+, )?t_last = (-?\d+)"
 )
 RE_PICK_LCP = re.compile(
     r"slot get_availabl: id\s+(\d+) \|.*selected slot by LCP similarity, "

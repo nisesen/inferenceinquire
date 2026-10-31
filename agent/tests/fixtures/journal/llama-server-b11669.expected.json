@@ -1,0 +1,77 @@
+{
+ "matched": {
+  "auth_fail": 0,
+  "cache_evict": 1,
+  "cache_skip": 0,
+  "cancel": 1,
+  "tg": 1,
+  "prompt": 3,
+  "eval": 3,
+  "total": 3,
+  "draft": 3,
+  "graphs": 3,
+  "graph_reallocs": 3,
+  "launch": 3,
+  "release": 3,
+  "pick_lcp": 1,
+  "pick_lru": 3,
+  "loading": 1,
+  "loaded": 1,
+  "oom": 0
+ },
+ "requests": [
+  {
+   "task": 2838,
+   "slot": 1,
+   "prompt_tokens": 31,
+   "prefill_tps": 42.78,
+   "gen_tokens": 8,
+   "decode_tps": 58.31,
+   "accept_rate": 1.0,
+   "n_tokens": 113017,
+   "wall_s": 1.091407060623169,
+   "pick": {
+    "how": "lru"
+   }
+  },
+  {
+   "task": 2829,
+   "slot": 0,
+   "prompt_tokens": 37,
+   "prefill_tps": 147.71,
+   "gen_tokens": 4,
+   "decode_tps": 60.74,
+   "accept_rate": 1.0,
+   "n_tokens": 40,
+   "wall_s": 11.458043813705444,
+   "pick": {
+    "how": "lru"
+   }
+  },
+  {
+   "task": 2644,
+   "slot": 3,
+   "prompt_tokens": 112983,
+   "prefill_tps": 991.54,
+   "gen_tokens": 8,
+   "decode_tps": 25.78,
+   "accept_rate": 0.18182,
+   "n_tokens": 112990,
+   "wall_s": 115.57427620887756,
+   "pick": {
+    "how": "lru"
+   }
+  }
+ ],
+ "counters": {
+  "auth_fail": 0,
+  "cache_evict": 1,
+  "cache_evict_mib": 465.405,
+  "cache_skip": 0,
+  "cancel": 1
+ },
+ "load": {
+  "state": "loaded",
+  "path": "/opt/models/Qwen3.8-27B-UD-Q8_K_XL.gguf"
+ }
+}

@@ -6,6 +6,12 @@ All notable changes are listed here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+
+- llama.cpp b11669 (v0.7.0) and later: slots picked by least-recent use are
+  counted again (the log line gained an `n_tokens` field), and the new
+  `graph reallocs` timing line is read instead of reported as unread.
+
 ## [0.1.0] - 2026-09-26
 
 The first public release.

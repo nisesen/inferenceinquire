@@ -10,6 +10,7 @@
   "total": 4,
   "draft": 6,
   "graphs": 4,
+  "graph_reallocs": 0,
   "launch": 4,
   "release": 4,
   "pick_lcp": 5,

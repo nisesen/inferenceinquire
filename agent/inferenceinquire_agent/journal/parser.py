@@ -21,6 +21,7 @@ from .patterns import (
     RE_CANCEL,
     RE_DRAFT,
     RE_EVAL,
+    RE_GRAPH_REALLOCS,
     RE_GRAPHS,
     RE_LAUNCH,
     RE_LOADED,
@@ -191,6 +192,11 @@ class JournalParser:
         r = self.pending.setdefault(int(task), {"task": int(task), "slot": int(sid)})
         r["graphs_reused"] = int(n)
 
+    def _graph_reallocs(self, ts, m, line):
+        sid, task, same, changed = m.groups()
+        r = self.pending.setdefault(int(task), {"task": int(task), "slot": int(sid)})
+        r["graph_reallocs"] = {"same_size": int(same), "changed_size": int(changed)}
+
     def _launch(self, ts, m, line):
         sid, task, child = m.groups()
         s = self._slot(sid)
@@ -274,6 +280,7 @@ class JournalParser:
         ("total", RE_TOTAL, _total),
         ("draft", RE_DRAFT, _draft),
         ("graphs", RE_GRAPHS, _graphs),
+        ("graph_reallocs", RE_GRAPH_REALLOCS, _graph_reallocs),
         ("launch", RE_LAUNCH, _launch),
         ("release", RE_RELEASE, _release),
         ("pick_lcp", RE_PICK_LCP, _pick_lcp),
